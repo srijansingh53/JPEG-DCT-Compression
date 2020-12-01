@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Image Compressor</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+</head>
+<body>
+	<h1>Image Compress hone jaa raha hai saavdhan</h1>
+	<input type="file" id="fileupload" accept="image/*"/>
+	<img id="blah" src="#" alt="your image" />
+
+	<script type="text/javascript">
+		const handleImageUpload = event => {
+			const files = event.target.files;
+			const formData = new FormData();
+			formData.append('myfile', files[0]);
+
+			console.log(formData);
+
+			if (event.target.files && event.target.files[0]) {
+			    var reader = new FileReader();
+
+			    reader.onload = function(e) {
+			      $('#blah').attr('src', e.target.result);
+			    }
+
+			    reader.readAsDataURL(event.target.files[0]); // convert to base64 string
+			  }
+		}
+
+		document.querySelector('#fileupload').addEventListener('change', event => {
+			handleImageUpload(event);
+		});
+	</script>
+</body>
+</html>
