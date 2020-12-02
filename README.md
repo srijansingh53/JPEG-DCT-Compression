@@ -23,7 +23,7 @@ pip install -r requirements.txt
 
 ## Run Locally
 
-Run the following command to run locally on [127.0.0.1:8000](http://127.0.0.1:8000)
+Run the following command to run locally on [localhost:5000](http://localhost:5000)
 ```
 python app/app.py
 ```
