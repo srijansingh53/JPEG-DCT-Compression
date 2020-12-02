@@ -34,19 +34,20 @@
 		<br><br>
 		<div class="conatiner text-center">
 			<button id="compress">Compress</button><br><br>
-			<div class="div_imagetranscrits"></div>
+      <span class="div_image_original"></span>
+			<span class="div_image_compressed"></span>
 		</div>
 	</div><br><br>
   <!--iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
   <div>
-  
+
 	<input type="file" id="fileupload" name="image" accept="image/*"/>
   </div>
 
 
   <label for="compression_rate">Chose Compression rate:</label>
 
-  
+
 
   <br>
 	<img id="blah" src="#" alt="your image" style="display: none;"/>
@@ -100,7 +101,8 @@
 					url: '/compress/',
 					data: formData,
 					success: function(data){
-						$('.div_imagetranscrits').html('<img class="img-thumbnail img-fluid rounded mx-auto d-block" style="width: 500px;" src="data:image/png;base64,' + data['encoded_img'] + '" />');
+						$('.div_image_compressed').html('<img class="img-thumbnail img-fluid rounded mx-auto d-block" style="width: 500px;" src="data:image/png;base64,' + data['encoded_img'] + '" />');
+            $('.div_image_original').html('<img class="img-thumbnail img-fluid rounded mx-auto d-block" style="width: 500px;" src="data:image/png;base64,' + data['uncompress_img'] + '" />');
 					},
 					cache: false,
 	        contentType: false,
