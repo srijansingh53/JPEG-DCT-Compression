@@ -13,7 +13,7 @@ Create a python3 virtual environment
 ```
 python3 -m venv dct
 source dct/bin/activate
-``` 
+```
 Clone and install the dependencies for the project.
 ```
 git clone https://github.com/srijansingh53/JPEG-DCT-Compression.git
@@ -30,3 +30,10 @@ python app/app.py
 
 ## Results
 The following are the images before and after compression
+
+Before
+![uncompressed image](uncompress.png)
+
+After
+![Compressed image](compressed.png)
+
