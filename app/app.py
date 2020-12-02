@@ -23,9 +23,10 @@ def compress():
     if request.files:
       content_type = request.mimetype
       image = request.files['image']
+      compression_rate = request.form['compression_rate']
       image.save(os.path.join(app.config['uploads'], image.filename))
 
-      path = Compress(os.path.join(app.config['uploads'], image.filename),1)
+      path = Compress(os.path.join(app.config['uploads'], image.filename), compression_rate)
       encoded_img = get_response_image(os.path.join(app.config['compress_path'], path))
       response = {"message": "saved", "encoded_img": encoded_img}
       return response, 200

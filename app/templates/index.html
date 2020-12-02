@@ -17,7 +17,17 @@
 		</nav>
 	</nav>
 	<br>
+  <div>
+  <label for="image">Choose a image:</label>
 	<input type="file" id="fileupload" name="image" accept="image/*"/>
+  </div>
+  <label for="compression_rate">Chose Compression rate:</label>
+  <select name="compression_rate" id="compression_rate">
+    <option value=1>Low</option>
+    <option value=2>Medium</option>
+    <option value=3>High</option>
+  </select>
+  <br>
 	<img id="blah" src="#" alt="your image" style="display: none;"/>
 	<br><br>
 	<button id="compress">Compress</button>
@@ -58,15 +68,15 @@
         else if (!input.files[0]) {
           alert("Please select a file before clicking 'Load'");
         }
+        var compression_rate = document.getElementById('compression_rate').value;
         const formData = new FormData();
 				formData.append('image', input.files[0]);
+        formData.append('compression_rate', compression_rate);
 				$.ajax({
 					type: 'POST',
 					url: '/compress/',
 					data: formData,
 					success: function(data){
-						console.log("response received success");
-						console.log(data);
 						$('.div_imagetranscrits').html('<img src="data:image/png;base64,' + data['encoded_img'] + '" />');
 					},
 					cache: false,
