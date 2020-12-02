@@ -10,28 +10,51 @@
 </head>
 <body>
 	<nav>
-		<nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top sticky-top">
+		<nav class="navbar navbar-expand-md text-white navbar-dark bg-primary fixed-top sticky-top justify-content-center">
 		  <span class="navbar-text">
-		      <a class="nav-item">Image Compresser using DCT</a>
+		      <a class="nav-item">JPEG DCT Compressor</a>
 		  </span>
 		</nav>
 	</nav>
 	<br>
+
+	<div class="container-fluid">
+		<img class="img-thumbnail img-fluid rounded mx-auto d-block" id="blah" src="#" alt="your image" style="display: none; width: 500px" />
+		<br><br>
+		<div class="container text-center">
+			<label for="compression_rate">Chose Compression rate:</label>
+			<select name="compression_rate" id="compression_rate">
+				<option value=1>Low</option>
+				<option value=2>Medium</option>
+				<option value=3>High</option>
+			</select>
+			<label for="image">Choose a image:</label>
+			<input type="file" id="fileupload" name="image" accept="image/*"/>
+		</div>
+		<br><br>
+		<div class="conatiner text-center">
+			<button id="compress">Compress</button><br><br>
+			<div class="div_imagetranscrits"></div>
+		</div>
+	</div><br><br>
+  <!--iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
   <div>
-  <label for="image">Choose a image:</label>
+  
 	<input type="file" id="fileupload" name="image" accept="image/*"/>
   </div>
+
+
   <label for="compression_rate">Chose Compression rate:</label>
-  <select name="compression_rate" id="compression_rate">
-    <option value=1>Low</option>
-    <option value=2>Medium</option>
-    <option value=3>High</option>
-  </select>
+
+  
+
   <br>
 	<img id="blah" src="#" alt="your image" style="display: none;"/>
 	<br><br>
+
+
 	<button id="compress">Compress</button>
-	<div class="div_imagetranscrits"></div>
+	<div class="div_imagetranscrits"></div>-->
 
 	<script type="text/javascript">
 		const handleImageUpload = event => {
@@ -77,7 +100,7 @@
 					url: '/compress/',
 					data: formData,
 					success: function(data){
-						$('.div_imagetranscrits').html('<img src="data:image/png;base64,' + data['encoded_img'] + '" />');
+						$('.div_imagetranscrits').html('<img class="img-thumbnail img-fluid rounded mx-auto d-block" style="width: 500px;" src="data:image/png;base64,' + data['encoded_img'] + '" />');
 					},
 					cache: false,
 	        contentType: false,
