@@ -6,6 +6,7 @@ Standard jpeg compression with DCT with different compression rates
 - [Pre-requisites](https://github.com/srijansingh53/jpeg-dct-compression#pre-requisites)
 - [Run Locally](https://github.com/srijansingh53/jpeg-dct-compression#run-locally)
 - [Results](https://github.com/srijansingh53/jpeg-dct-compression#results)
+- [Conclusion](https://github.com/srijansingh53/jpeg-dct-compression#conclusion)
 
 ## Pre-requisites
 
@@ -42,4 +43,10 @@ Before
 After
 
 ![Compressed image](compressed.png)
+
+
+## Conclusion
+- **3 types of compression is done - Q90(lowest), Q50(medium) and Q10(highest).**
+- **Due to Quantization, artifacts are generated more for highly compressed images than lower compressed ones.**
+- **DCT and IDCT code from scratch taking more time to process than openCV standard dct-idct functions.**
 
