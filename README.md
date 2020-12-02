@@ -31,9 +31,15 @@ python app/app.py
 ## Results
 The following are the images before and after compression
 
+User Interface
+![user interface](user_interface.png)
+
+
 Before
+
 ![uncompressed image](uncompress.png)
 
 After
+
 ![Compressed image](compressed.png)
 
