@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 import math
 import pathlib
+from dct_idct import dct_2d, idct_2d
 
 def selectQMatrix(qName):
     Q10 = np.array([[80,60,50,80,120,200,255,255],
@@ -108,6 +109,7 @@ def Compress(filepath,rate):
                 block = padded_img[ row_ind_1 : row_ind_2 , col_ind_1 : col_ind_2 ]
                 # print(type(block))
                 # apply 2D discrete cosine transform to the selected block
+                # DCT = dct_2d(block) # scratch dct2d is taking time 
                 DCT = cv2.dct(block)
 
                 DCT_normalized = np.divide(DCT,QUANTIZATION_MAT).astype(int)
@@ -130,6 +132,7 @@ def Compress(filepath,rate):
             block = padded_img[i:i+8,j:j+8]
             # print(block)
             de_quantized = np.multiply(block,QUANTIZATION_MAT)
+            # inverse = idct_2d(np.float64(de_quantized)) # # scratch dct2d is taking time 
             inverse = cv2.idct(np.float64(de_quantized))
             # print(inverse)
             comp_img[i:i+8,j:j+8] = inverse
